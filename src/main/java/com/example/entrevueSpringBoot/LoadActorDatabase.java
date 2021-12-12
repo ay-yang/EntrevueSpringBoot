@@ -8,14 +8,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class LoadActorDatabase {
-    private static final Logger log = LoggerFactory.getLogger(LoadMovieDatabase.class);
+    private static final Logger actorLog = LoggerFactory.getLogger(LoadActorDatabase.class);
 
     @Bean
     CommandLineRunner initActorDatabase(ActorRepository actorRepository) {
         return args -> {
-            log.info("Preloading" + actorRepository.save(new Actor("Mark", "Hamill", 2)));
-            log.info("Preloading" + actorRepository.save(new Actor("Ford", "Harrison", 2)));
-            log.info("Preloading" + actorRepository.save(new Actor("Ginnifer", "Goodwin", 1)));
+            actorLog.info("Preloading" + actorRepository.save(new Actor("Mark", "Hamill", 2)));
+            actorLog.info("Preloading" + actorRepository.save(new Actor("Ford", "Harrison", 2)));
+            actorLog.info("Preloading" + actorRepository.save(new Actor("Ginnifer", "Goodwin", 1)));
         };
     }
 

@@ -1,7 +1,5 @@
 package com.example.entrevueSpringBoot;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,22 +28,6 @@ public class Actor{
     }
 
     /**METHODS------------------------------------------------------**/
-
-    @Override
-    public boolean equals(Object objectToCompare){
-        if (!(objectToCompare instanceof Actor))
-            return false;
-        Actor actorToCompare = (Actor) objectToCompare;
-        return (Objects.equals(actorToCompare.id, this.id) &&
-                Objects.equals(actorToCompare.prenom, this.prenom) &&
-                Objects.equals(actorToCompare.nom, this.nom));
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.id, this.prenom, this.nom);
-    }
-
     public long getId() {
         return this.id;
     }

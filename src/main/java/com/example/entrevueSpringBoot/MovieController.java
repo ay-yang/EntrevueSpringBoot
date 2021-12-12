@@ -1,10 +1,8 @@
 package com.example.entrevueSpringBoot;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,20 +17,21 @@ public class MovieController {
 
     /**Mapping pertaining to movie-------------------------------------------*/
     @PostMapping("/api/film")
-    Movie newMovie(@RequestBody Movie newMovie) {
-        ArrayList<Actor> newMovieActorList = newMovie.getActors();
+    public Movie newMovie(@RequestBody Movie newMovie) {
+        /* List<Actor> newMovieActorList = newMovie.getActeurs();
+        System.out.println(newMovieActorList);
         if (newMovieActorList != null) {
             ListIterator<Actor> newMovieActorListIterator = newMovieActorList.listIterator();
             while (newMovieActorListIterator.hasNext()) {
                 Actor newActor = newMovieActorListIterator.next();
                 actorRepository.save(newActor);
             }
-        }
+        } */
         return movieRepository.save(newMovie);
     }
 
     @GetMapping("/api/film/add-by-param")
-    Movie addNewMovie(@RequestParam(value = "description", defaultValue = "Test") String description,
+    public Movie addNewMovie(@RequestParam(value = "description", defaultValue = "Test") String description,
                       @RequestParam(value = "titre", defaultValue = "Zootopia") String titre,
                       @RequestParam(value = "id", defaultValue = "4") Long id)  {
         Movie newMovie = new Movie(description, titre, id);
@@ -40,7 +39,7 @@ public class MovieController {
     }
 
     @GetMapping("/api/film")
-    List<Movie> allMovies() {
+    public List<Movie> allMovies() {
         List<Movie> movieList = movieRepository.findAll();
         ListIterator<Movie> movieListIterator = movieList.listIterator();
         while (movieListIterator.hasNext()) {
@@ -51,7 +50,7 @@ public class MovieController {
     }
 
     @GetMapping("/api/film/{id}")
-    Movie movieById(@PathVariable Long id) {
+    public Movie movieById(@PathVariable Long id) {
         Movie foundMovie = movieRepository.findById(id).orElseThrow( () -> new MovieNotFoundException(id));
         addActorsToMovie(foundMovie);
         return foundMovie;
@@ -64,17 +63,17 @@ public class MovieController {
 
     /**Mapping pertaining to actor--------------------------------------------*/
     @PostMapping("/api/actor")
-    Actor newActor(@RequestBody Actor newActor) {
+    public Actor newActor(@RequestBody Actor newActor) {
         return actorRepository.save(newActor);
     }
 
     @GetMapping("/api/actor")
-    List<Actor> allActors() {
+    public List<Actor> allActors() {
         return actorRepository.findAll();
     }
 
     @GetMapping("/api/actor/{id}")
-    Actor actorById(@PathVariable Long id){
+    public Actor actorById(@PathVariable Long id){
         return actorRepository.findById(id).orElseThrow( () -> new ActorNotFoundException(id));
     }
 

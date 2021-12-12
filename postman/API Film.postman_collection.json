@@ -51,7 +51,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{{\"id\":3,\"titre\":\"How to Train your Dragon\",\"description\":\"A boy and a dragon form a friendship that will eventually reshape their understanding of each other's race.\",\"acteurs\":[{\"id\":4,\"movieId\":3,\"nom\":\"Baruchel\",\"prenom\":\"Jay\"},{\"id\":5,\"movieId\":3,\"nom\":\"Ferrera\",\"prenom\":\"America\"}]}",
+					"raw": "{{\"id\":3,\"titre\":\"How to Train your Dragon\",\"description\":\"A boy and a dragon form a friendship that will eventually reshape their understanding of each other's race.\"}",
 					"options": {
 						"raw": {
 							"language": "json"

@@ -1,22 +1,5 @@
 # Java Spring Boot Test
 
-## Objectif du test
-
-Votre objectif pour ce test est de créer un API Rest avec Java et Spring Boot
-pour ajouter et obtenir les détails d'un film.
-
-Vous devez créer 2 endpoints dans l'API:
-
-- Un GET pour obtenir un film par ID dans la base de données en mémoire (H2).
-- Un POST pour ajouter un film dans la base de données en mémoire (H2).
-
-## Critères
-
-- 2 endpoints REST fonctionnels
-- Structure des classes
-- Qualité du code
-- Utilisation des meilleurs pratiques
-
 ## Modèles
 
 #### Movie
@@ -38,8 +21,7 @@ Vous devez créer 2 endpoints dans l'API:
 
 Pour ajouter un film, aller vers le lien: api/film
 - S'il s'agit d'une requête GET, tous les films seront retournés. 
-- S'il s'agit d'une requête POST, l'objet Json sera converti en objet Movie et sera ajouté. 
-- Les acteurs, s'il y en a, seront ajoutés également.
+- S'il s'agit d'une requête POST, l'objet Json sera converti en objet Movie et sera ajouté.
 
 #### Actor
 

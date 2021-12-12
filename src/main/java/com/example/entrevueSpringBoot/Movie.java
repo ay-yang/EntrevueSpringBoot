@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -14,11 +13,6 @@ public class Movie {
     private String titre;
     private String description;
     private ArrayList<Actor> acteurs;
-
-    private static final String template =
-            " id: %l " +
-            " titre: %s" +
-            " description: %s ";
 
     /**CONSTRUCTOR--------------------------------------------------**/
 
@@ -42,7 +36,7 @@ public class Movie {
      * @param acteurs: list of actors starring in the movie
      */
     public Movie(String description, String titre, long id, List<Actor> acteurs) {
-        this.acteurs = (ArrayList)acteurs;
+        this.acteurs = (ArrayList<Actor>)acteurs;
         this.description = description;
         this.titre = titre;
         this.id = id;
@@ -50,10 +44,11 @@ public class Movie {
 
     /**METHODS------------------------------------------------------**/
     public void addActors(List<Actor> acteurs) {
-        this.acteurs = (ArrayList)acteurs;
+        this.acteurs = (ArrayList<Actor>)acteurs;
     }
 
-    public ArrayList<Actor> getActors() {
+    /*Getters-------------------------------------------------------*/
+    public List<Actor> getActeurs() {
         return this.acteurs;
     }
 
@@ -73,6 +68,7 @@ public class Movie {
     public String toString() {
         return (" id: " + this.id +
                 " titre: " + this.titre +
-                " description: " + this.description);
+                " description: " + this.description +
+                " acteurs: " + this.acteurs);
     }
 }
